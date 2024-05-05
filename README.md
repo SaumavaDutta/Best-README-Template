@@ -8,7 +8,6 @@
 *** Thanks again! Now let's dive into Blue.ts! 🎵
 -->
 <!-- PROJECT LOGO -->
-<br />
 <div align="center">
   <h1 align="center">Blue.ts</h1>
 
