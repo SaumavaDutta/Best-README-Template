@@ -1,270 +1,248 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-<a name="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
-<!-- PROJECT LOGO -->
-<br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-  <h3 align="center">Best-README-Template</h3>
-
-  <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
-  </p>
+ <img src="https://raw.githubusercontent.com/ftrapture/blue.ts/main/assets/banner.png" alt="Blue.ts Banner" width="800">
+ <h1>Blue.ts</h1>
+ <p>A powerful, simple, and effective stable Lavalink client developed in TypeScript.</p>
+ <p>
+   <a href="#features">Features</a>
+   •
+   <a href="#requirements">Requirements</a>
+   •
+   <a href="#installation">Installation</a>
+   •
+   <a href="#quickstart">Quick Start</a>
+   •
+   <a href="#documentation">Documentation</a>
+   •
+   <a href="#issues">Issues</a>
+   •
+   <a href="#license">License</a>
+ </p>
+ <br>
 </div>
 
+<div>
+ <h2 id="features">✨ Features</h2>
+ <ul>
+   <li>💿 Audio playback with fully-featured controls</li>
+   <li>🎚️ Filters support</li>
+   <li>🔍 Best search engines: YouTube, Spotify, SoundCloud</li>
+   <li>🔄 Autoplay feature</li>
+   <li>⚡ Faster, simple, and stable client</li>
+   <li>🆙 Supports the latest Lavalink version: 4.0.4</li>
+   <li>🌐 Compatible with discord.js, eris, oceanicjs</li>
+   <li>🔌 Plugins support</li>
+ </ul>
+</div>
 
+<div>
+ <h2 id="requirements">⚙️ Requirements</h2>
+ <ul>
+   <li><a href="https://nodejs.org/en/download">Node.js</a> Version: >= 16.9.0</li>
+   <li>A Lavalink server, here are some free Lavalink servers: <a href="https://lavalink.darrennathanael.com/">Click Me</a></li>
+   <li>Discord Bot <a href="https://discord.com/developers/applications">token</a> to get started</li>
+ </ul>
+</div>
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
+<div>
+ <h2 id="installation">📥 Installation</h2>
+ <pre><code>
+# npm install
+npm install blue.ts
 
+# yarn install
+yarn add blue.ts
+ </code></pre>
+</div>
 
+## Quick Start With Djs 13
 
-<!-- ABOUT THE PROJECT -->
-## About The Project
+```javascript
+const { Client, Intents } = require("discord.js");
+const { Blue, Events, Types, Library } = require("blue.ts");
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+const client = new Client({
+  failIfNotExists: false,
+  allowedMentions: {
+    parse: ['roles', 'users'],
+    repliedUser: false,
+  },
+  partials: [
+    'MESSAGE',
+    'CHANNEL',
+    'REACTION',
+    'GUILD_MEMBER',
+    'USER'
+  ],
+  intents: [
+    Intents.FLAGS.GUILDS,
+    Intents.FLAGS.GUILD_MEMBERS,
+    Intents.FLAGS.GUILD_BANS,
+    Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS,
+    Intents.FLAGS.GUILD_INTEGRATIONS,
+    Intents.FLAGS.GUILD_WEBHOOKS,
+    Intents.FLAGS.GUILD_INVITES,
+    Intents.FLAGS.GUILD_VOICE_STATES,
+    Intents.FLAGS.GUILD_MESSAGES,
+    Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
+    Intents.FLAGS.GUILD_MESSAGE_TYPING,
+    Intents.FLAGS.DIRECT_MESSAGES,
+    Intents.FLAGS.DIRECT_MESSAGE_REACTIONS,
+  ],
+  presence: {
+    activities: [
+      {
+        name: 'Blue.js',
+        type: "LISTENING",
+      },
+    ],
+    status: 'online',
+  }
+});
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+const nodes = [
+  {
+    host: "localhost",
+    port: 2333,
+    password: "youshallnotpass",
+    secure: false
+  }
+];
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+const options = {
+  spotify: {
+    client_id: "CLIENT_ID",  //spotify client ID
+    client_secret: "CLIENT_SECRET" //spotify client Secret
+  },
+  autoplay: true,
+  version: "v4",
+  library: Library.DiscordJs
+};
+client.manager = new Blue(nodes, options);
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+client.on("ready", async () => {
+  console.log("Client is ready!");
+  client.manager.init(client);
+});
 
-Use the `BLANK_README.md` to get started.
+client.manager.on(Events.nodeConnect, (a, b) => {
+  console.log(b);
+});
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+client.manager.on(Events.nodeDisconnect, (a, b) => {
+  console.log(b);
+});
 
+client.manager.on(Events.trackStart, async(a, b) => {
+   const guild = await client.guilds.fetch(a.guildId).catch(() => null);
+   if(!guild) return;
+   const channel = await guild.channels.fetch(a.textChannel).catch(() => null);
+   if(!channel) return;
+   return channel.send(`Track Started: [${b.title}](${b.uri})`);
+});
 
+//logging
+/*
+client.manager.on(Events.api, (data) => {
+  console.log(data);
+});*/
 
-### Built With
+client.on("messageCreate", async (message) => {
+  if (message.author.bot || !message.guild || !message.channel) return;
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+  const prefix = ">";
+  let player = client.manager.players.get(message.guild.id);
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+  if (!message.content.toLowerCase().startsWith(prefix)) return;
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const cmd = args.shift()?.toLowerCase();
 
+  if (cmd == "play") {
+    if (!message.member?.voice.channel) return message.reply("you must be in a voice channel");
 
+    const query = args.slice(0).join(" ");
 
-<!-- GETTING STARTED -->
-## Getting Started
+    if (!query) return message.reply("provide the query");
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+    if (!player)
+      player = await client.manager.create({
+        voiceChannel: message.member.voice.channel.id,
+        textChannel: message.channel.id,
+        guildId: message.guild.id,
+        selfDeaf: true,
+        selfMute: false
+      });
 
-### Prerequisites
+    const res = await client.manager.search({ query: query }, message.author).catch(() => null);
+    if (!res) return message.reply("song not found");
+    if (res.loadType == Types.LOAD_SP_ALBUMS || res.loadType == Types.LOAD_SP_PLAYLISTS) {
+      player.queue.add(...res.items);
+    } else {
+      player.queue.add(res.tracks[0]);
+    }
+    if (!player.queue?.current)
+      player.play();
+    return message.reply("queued song");
+  }
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+  if (cmd == "skip") {
+    if (!player || !player.isConnected) return message.reply("player not initialized yet.");
+    if (player.queue.size() < 1 && !player.playing) {
+      player.disconnect();
+      return message.reply("there's no song to skip.");
+    }
+    player.stop();
+    return message.reply("skipped to the next song.");
+  }
 
-### Installation
+  if (cmd == "stop") {
+    if (!player || !player.isConnected) return message.reply("player not initialized yet.");
+    player.disconnect();
+    return message.reply("stopped the song, and left the vc");
+  }
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+  if (cmd == "replay") {
+    if (!player || !player.queue.current) return message.reply("Nothing playing rn.");
+    player.seek(0);
+    return message.reply("alr playing from the beginning.");
+  }
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+  if (cmd == "seek") {
+    if (!args[0]) return message.reply("provide the position");
+    if (!player || !player.queue.current) return message.reply("Nothing playing rn.");
+    player.seek(args.slice(0).join(" "));
+    return message.reply("alr player position sets to " + player.position);
+  }
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+  if (cmd == "8d") {
+    if (!player || !player.queue.current) return message.reply("Nothing playing rn.");
+    if(player.filter.is8D)
+      player.filter.set8D(false);
+    else
+      player.filter.set8D(true);
+    return message.reply(`filter has been added`);
+  }
+  
+  if (cmd == "clear") {
+    if (!player || !player.queue.current) return message.reply("Nothing playing rn.");
+    player.filter.clearFilters();
+    return message.reply(`filters has been cleared`);
+  }
+});
 
+client.login("TOKEN");
+```
 
+## Documentation
 
-<!-- USAGE EXAMPLES -->
-## Usage
+Check out the [documentation](https://github.com/ftrapture/blue.ts/wiki) for detailed usage instructions and examples.
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+## Issues
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+For any inquiries or issues, feel free to [open an issue](https://github.com/ftrapture/blue.ts/issues) on GitHub.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+This project is licensed under the ISC License.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+By [Rapture](https://github.com/ftrapture)
